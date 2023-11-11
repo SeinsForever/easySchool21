@@ -17,8 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from clusterEmploymentES21.views import index_page
+from clusterEmploymentES21.views import hydrogenGraphicPage
+from clusterEmploymentES21.views import carbonGraphicPage
+from clusterEmploymentES21.views import hydrogenTextPage
+from clusterEmploymentES21.views import carbonTextPage
+from clusterEmploymentES21.views import carbonPage
+from clusterEmploymentES21.views import hydrogenPage
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index_page)
-]
+    path('', index_page),
+    path('hydrogenText/', hydrogenTextPage),
+    path('carbonText/', carbonTextPage),
+    path('hydrogenGraphic/', hydrogenGraphicPage),
+    path('carbonGraphic/', carbonGraphicPage),
+    path('hydrogen/', hydrogenPage),
+    path('carbon/', carbonPage),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

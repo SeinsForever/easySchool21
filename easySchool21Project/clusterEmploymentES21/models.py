@@ -7,3 +7,25 @@ class user(models.Model):
 
     def __str__(self):
         return f'{self.login}'
+
+class image(models.Model):
+    # name = models.CharField(max_length=20, blank=False)
+    img = models.ImageField(upload_to="media/",null=True, blank=True)
+
+
+class hydrogenPlaces(models.Model):
+    positionName = models.CharField(max_length=10, blank=False)
+    x = models.IntegerField(blank=False)
+    y = models.IntegerField(blank=False)
+
+    def __str__(self):
+        return f'{self.positionName}'
+
+class carbonPlaces(models.Model):
+    positionName = models.CharField(max_length=10, blank=False)
+    x = models.IntegerField(blank=False)
+    y = models.IntegerField(blank=False)
+
+    def __str__(self):
+        return f'{self.positionName}'
+
